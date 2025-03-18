@@ -19,9 +19,6 @@ public class User {
     private int id;
 
     @Column(nullable = false)
-    private String email;  // Ensure it's String, not null
-
-    @Column(nullable = false)
     private String name;   // Ensure it's String, not Integer
 
     @Column(nullable = false)
@@ -35,9 +32,7 @@ public class User {
         return id;
     }
 
-    public String getEmail() {
-        return email;
-    }
+
 
     public String getName() {
         return name;
@@ -51,9 +46,8 @@ public class User {
         return role;
     }
 
-    public User(int id, String email, String name, String password, Role role) {
+    public User(int id,String name, String password, Role role) {
         this.id = id;
-        this.email = email;
         this.name = name;
         this.password = password;
         this.role = role;
@@ -66,9 +60,6 @@ public class User {
         this.id = id;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public void setName(String name) {
         this.name = name;
@@ -86,14 +77,10 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", email='" + email + '\'' +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
                 '}';
     }
-
-
-
 
 }

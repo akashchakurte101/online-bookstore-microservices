@@ -1,9 +1,11 @@
 package com.chakurte.user_service.dto;
 
 import com.chakurte.user_service.model.Role;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.time.LocalDateTime;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class LoginResponse {
     private int userId;
     private String username;
@@ -13,20 +15,23 @@ public class LoginResponse {
     private String custmizedMessage;
 
 
-    public LoginResponse(int userId, String username, Role role, LocalDateTime loginTime, LocalDateTime expiryTime) {
+    public String getCustmizedMessage() {
+        return custmizedMessage;
+    }
+
+    public void setCustmizedMessage(String custmizedMessage) {
+        this.custmizedMessage = custmizedMessage;
+    }
+
+    public LoginResponse(int userId, String username, Role role, LocalDateTime loginTime, LocalDateTime expiryTime,String custmizedMessage) {
         this.userId = userId;
         this.username = username;
         this.role = role;
         this.loginTime = loginTime;
         this.expiryTime = expiryTime;
+        this.custmizedMessage=custmizedMessage;
     }
 
-    public LoginResponse(int userId,String username,Role role,String custmizedMessage){
-    this.userId = userId;
-    this.username = username;
-    this.role = role;
-    this.custmizedMessage=custmizedMessage;
-   }
     public int getUserId() {
         return userId;
     }

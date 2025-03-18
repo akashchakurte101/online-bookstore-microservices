@@ -12,7 +12,7 @@ public class RegisterRequest {
     private int id;
 
     @Column(nullable = false)
-    private String username;
+    private String name;
 
     @Column(nullable = false)
     private String password;
@@ -21,9 +21,9 @@ public class RegisterRequest {
     @Column(nullable = false)
     private Role role;
 
-    public RegisterRequest(int id, String username, String password, Role role) {
+    public RegisterRequest(int id, String name, String password, Role role) {
         this.id = id;
-        this.username = username;
+        this.name = name;
         this.password = password;
         this.role = role;
     }
@@ -40,12 +40,12 @@ public class RegisterRequest {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getname() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void name(String name) {
+        this.name = name;
     }
 
     public String getPassword() {
@@ -58,6 +58,16 @@ public class RegisterRequest {
 
     public Role getRole() {
         return role;
+    }
+
+    @Override
+    public String toString() {
+        return "RegisterRequest{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                '}';
     }
 
     public void setRole(Role role) {
